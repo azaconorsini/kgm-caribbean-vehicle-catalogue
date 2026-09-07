@@ -1,0 +1,121 @@
+/*!
+ * Catalogue Filter UX — stylesheet
+ * Paste into: Theme Options -> Custom CSS/JS -> Custom CSS
+ * MIT Licensed.
+ */
+
+/* ============================================================
+   1) ACTIVE FILTER CHIPS
+   ============================================================ */
+.kgm-af-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.kgm-af-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-weight: 700;
+  color: #9aa4b2;
+  margin-right: 4px;
+}
+
+.kgm-af-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kgm-af-tag .kgm-af-x {
+  cursor: pointer;
+  font-size: 13px;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+  display: inline-flex;
+}
+
+.kgm-af-tag .kgm-af-x:hover {
+  opacity: 1;
+}
+
+/* One rule per facet — `cls` in the JS FACETS array points here. */
+.kgm-af-tag.kgm-region {
+  background: #0d1526;
+  color: #ffffff;
+}
+
+.kgm-af-tag.kgm-engine {
+  background: #fdf6e6;
+  color: #1a2233;
+  border: 1px solid #f0e4c4;
+}
+
+.kgm-af-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b6472;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0 4px;
+}
+
+.kgm-af-clear:hover {
+  color: #0d1526;
+}
+
+/* Collapse the whole row when no filters are active. */
+.wpb_row#active-filter.kgm-af-empty {
+  display: none;
+}
+
+
+/* ============================================================
+   2) CARD LAYOUT — push the CTA to the bottom of every card
+   so buttons align across a row of uneven-height cards.
+   ============================================================ */
+.us_post_list .w-grid-item .w-grid-item-h {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.us_post_list .w-grid-item .usg_vwrapper_2 {
+  flex: 1 1 auto;
+  height: auto;
+}
+
+.us_post_list .w-grid-item .usg_vwrapper_2 > a.w-btn {
+  margin-top: auto;
+}
+
+
+/* ============================================================
+   3) CARD IMAGE ZOOM ON HOVER
+   Add the `vehicle-img` class to the image element in the grid layout.
+   ============================================================ */
+.us_post_list .w-grid-item .w-image.vehicle-img,
+.us_post_list .w-grid-item .w-image.vehicle-img .w-image-h {
+  overflow: hidden;
+}
+
+.us_post_list .w-grid-item .w-image.vehicle-img img {
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.us_post_list .w-grid-item:hover .w-image.vehicle-img img {
+  transform: scale(1.08);
+}
