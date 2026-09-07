@@ -5,11 +5,25 @@ Three lightweight front-end features for WordPress vehicle catalogues built on
 
 Vanilla JavaScript and CSS. No build step, no dependencies, no jQuery.
 
+**🔗 Live site — [kgmcaribbean.com/vehicles](https://kgmcaribbean.com/vehicles/)**
+
 Extracted from a vehicle catalogue page I designed and built — the layout, the
 card grid, the filter UI and the individual vehicle pages — and packaged here
 so the interactive parts can be reused.
 
-![Vehicle catalogue page](screenshots/catalogue-page.jpg)
+[![Vehicle catalogue page](screenshots/catalogue-page.jpg)](https://kgmcaribbean.com/vehicles/)
+
+---
+
+## See it in action
+
+On [the live page](https://kgmcaribbean.com/vehicles/), try:
+
+1. Pick a **region** from the dropdown — a chip appears and the count updates
+2. Add an **engine type** — a second chip joins it
+3. Click the **✕** on either chip to drop just that filter
+4. Hit **Clear All** to reset both at once
+5. Open any vehicle and click through the **colour swatches**
 
 ---
 
@@ -76,9 +90,11 @@ var FACETS = [
 ];
 ```
 
-- `name` — the taxonomy slug used by the filter
-- `prefix` — the label shown on the chip
-- `cls` — the colour rule in the stylesheet
+| Key | What it is |
+|---|---|
+| `name` | The taxonomy slug used by the filter |
+| `prefix` | The label shown on the chip |
+| `cls` | The colour rule in the stylesheet |
 
 Adding another filter takes one entry here and one CSS rule. Nothing else in
 the code is tied to a specific filter name.
@@ -88,10 +104,10 @@ the code is tied to a specific filter name.
 ## What's included
 
 ```
-src/catalogue-filter-ux.js     Chips, counter and swatch picker
-src/catalogue-filter-ux.css    Chip styles, card layout, image hover zoom
+src/catalogue-filter-ux.js       Chips, counter and swatch picker
+src/catalogue-filter-ux.css      Chip styles, card layout, image hover zoom
 snippets/catalogue-counter.html  Markup for the result counter
-screenshots/                     Page and feature screenshots
+screenshots/                     Catalogue page screenshot
 ```
 
 The stylesheet also contains two card-layout helpers from the original design:
@@ -113,6 +129,8 @@ A few decisions carried over from the page this came from:
   do anything?" is visible without scrolling.
 - **Card CTAs align to a shared baseline** regardless of how long each vehicle
   name runs, which keeps the grid calm.
+- **Filters are additive and independently removable** — a visitor who narrows
+  too far can step back one choice instead of starting over.
 
 ---
 
@@ -122,6 +140,8 @@ A few decisions carried over from the page this came from:
 - A grid filter element on the page
 - No build tooling — plain JavaScript, drop it in and go
 
+---
+
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). Free to use, modify and ship in client work.
